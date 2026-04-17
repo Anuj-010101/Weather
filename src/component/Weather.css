@@ -7,7 +7,7 @@
     flex-direction: column;
     align-items: center;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    width: 100%;
+    width: 90%; /* Mobile ke liye safer width */
     max-width: 400px; 
     transition: 0.3s ease;
 }
@@ -15,7 +15,8 @@
 .search-bar {
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: space-between; /* Space manage karne ke liye */
+    gap: 10px;
     width: 100%;
 }
 
@@ -24,20 +25,22 @@
     border: none;
     outline: none;
     border-radius: 40px;
-    padding-left: 25px;
+    padding-left: 20px;
     color: #333;
     background: #ffffff;
-    font-size: 18px;
+    font-size: 16px; /* 18px mobile par bada lagta hai */
     flex: 1;
+    min-width: 0; /* Sabse important line - isse input screen se bahar nahi jayega */
 }
 
 .search-bar img {
     width: 50px;
     height: 50px;
-    padding: 15px;
+    padding: 14px;
     border-radius: 50%;
     background-color: #ffffff;
     cursor: pointer;
+    flex-shrink: 0; /* Icon ko pichakne se rokne ke liye */
     transition: transform 0.2s;
 }
 
@@ -61,6 +64,7 @@
     color: #ffffff;
     font-size: 35px;
     margin-bottom: 10px;
+    text-align: center; /* Shehar ka naam bada ho toh center rahe */
 }
 
 .weather-data {
@@ -78,47 +82,52 @@
 }
 
 .weather-data .col p {
-    font-size: 20px;
+    font-size: 18px; /* Mobile ke liye thoda adjust kiya */
     margin: 0;
 }
 
 .weather-data .col span {
     display: block;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .weather-data .col img {
-    width: 30px;
+    width: 25px; /* Thoda chota kiya mobile ke liye */
 }
 
+/* --- Media Query for Mobile --- */
 
 @media (max-width: 450px) {
     .weather {
         width: 92%; 
-        padding: 25px;
+        padding: 20px; /* Padding kam ki taaki andar space mile */
         border-radius: 15px;
     }
 
     .temperature {
-        font-size: 55px;
+        font-size: 50px;
     }
 
     .location {
-        font-size: 28px;
+        font-size: 26px;
     }
 
     .weather-icon {
-        width: 110px;
+        width: 100px;
     }
 
     .weather-data {
-        flex-direction: row; 
+        gap: 5px; /* Columns ke beech thoda gap */
+    }
+
+    .weather-data .col p {
         font-size: 16px;
     }
 
     .search-bar input {
         height: 45px;
-        font-size: 16px;
+        font-size: 15px;
+        padding-left: 15px;
     }
 
     .search-bar img {
